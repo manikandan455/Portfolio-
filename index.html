@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Boopathi Manikandan | CCTV & Security Systems Technician</title>
+<meta name="description" content="Boopathi Manikandan – CCTV & Security Systems Technician. DVR/NVR installation, IP camera setup, remote viewing and networking. Open to relocate to Singapore." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#04070d; --bg2:#0a1120; --card:rgba(16,26,46,.6); --line:rgba(0,229,255,.18);
+    --cyan:#00e5ff; --green:#22ff88; --red:#ff3b4e; --text:#e6f1ff; --muted:#8a9bb8;
+    --grad:linear-gradient(135deg,#00e5ff 0%,#22ff88 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+  .mono{font-family:'JetBrains Mono',monospace}
+  a{color:inherit;text-decoration:none}
+  #net{position:fixed;inset:0;z-index:-2}
+  body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:repeating-linear-gradient(0deg,rgba(255,255,255,.015) 0 1px,transparent 1px 3px)}
+  .container{width:min(1180px,92%);margin:auto}
+  section{padding:110px 0}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.3s}
+  nav.scrolled{background:rgba(4,7,13,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.2rem}
+  .logo-box{width:40px;height:40px;border:2px solid var(--cyan);border-radius:10px;display:grid;place-items:center;position:relative;color:var(--cyan)}
+  .logo-box::after{content:"";position:absolute;top:-4px;right:-4px;width:10px;height:10px;border-radius:50%;background:var(--red);animation:blink 1.2s infinite}
+  .links{display:flex;gap:32px;align-items:center}
+  .links a{color:var(--muted);font-size:.95rem;transition:.2s;position:relative}
+  .links a:hover{color:var(--cyan)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:12px;font-weight:600;transition:.3s;cursor:pointer;border:none;font-family:inherit;font-size:.95rem}
+  .btn-p{background:var(--grad);color:#02131a;box-shadow:0 0 30px rgba(0,229,255,.35)}
+  .btn-p:hover{transform:translateY(-3px);box-shadow:0 0 45px rgba(0,229,255,.6)}
+  .btn-o{border:1px solid var(--line);color:var(--text);background:rgba(0,229,255,.04)}
+  .btn-o:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-3px)}
+  .menu{display:none;background:none;border:none;color:var(--text);font-size:1.6rem;cursor:pointer}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;padding-top:100px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid rgba(34,255,136,.35);border-radius:50px;background:rgba(34,255,136,.07);color:var(--green);font-size:.85rem;margin-bottom:26px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:blink 1.4s infinite}
+  h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.05;font-weight:700;letter-spacing:-2px}
+  h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .typed{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--cyan);margin:20px 0;min-height:2em}
+  .typed::after{content:"▌";animation:blink 1s infinite;margin-left:3px}
+  .hero p.lead{color:var(--muted);font-size:1.08rem;max-width:540px;margin-bottom:34px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .quick{display:flex;gap:34px;margin-top:46px;flex-wrap:wrap}
+  .quick div b{display:block;font-size:1.5rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .quick div span{color:var(--muted);font-size:.85rem}
+
+  /* MONITOR */
+  .monitor{position:relative;border-radius:22px;padding:14px;background:linear-gradient(145deg,#0e1830,#060b16);border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(0,229,255,.12);transform:perspective(1200px) rotateY(-8deg) rotateX(4deg);transition:transform .2s ease-out}
+  .mon-top{display:flex;justify-content:space-between;align-items:center;padding:4px 8px 12px;font-size:.75rem;color:var(--muted)}
+  .rec{display:flex;align-items:center;gap:6px;color:var(--red);font-weight:600}
+  .rec i{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red);animation:blink 1s infinite}
+  .feeds{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .feed{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:radial-gradient(circle at 50% 60%,#13284a,#050a14);border:1px solid rgba(0,229,255,.12)}
+  .feed::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,229,255,.05) 0 1px,transparent 1px 4px);z-index:2}
+  .feed::after{content:"";position:absolute;left:0;right:0;height:30%;background:linear-gradient(transparent,rgba(0,229,255,.12),transparent);animation:scan 3.5s linear infinite;z-index:3}
+  .feed .lbl{position:absolute;top:8px;left:10px;font-size:.62rem;color:var(--green);z-index:4}
+  .feed .ts{position:absolute;bottom:8px;right:10px;font-size:.6rem;color:#fff;opacity:.8;z-index:4}
+  .feed .corner{position:absolute;width:14px;height:14px;border-color:var(--cyan);border-style:solid;z-index:4;opacity:.7}
+  .c1{top:6px;right:6px;border-width:2px 2px 0 0}.c2{bottom:6px;left:6px;border-width:0 0 2px 2px}
+  .feed svg{position:absolute;inset:0;margin:auto;width:46%;height:46%;opacity:.85;z-index:1}
+  .mon-foot{display:flex;justify-content:space-between;padding:12px 8px 2px;font-size:.7rem;color:var(--muted)}
+  .float-tag{position:absolute;padding:10px 16px;border-radius:12px;background:rgba(10,17,32,.92);border:1px solid var(--line);backdrop-filter:blur(10px);font-size:.8rem;display:flex;align-items:center;gap:8px;animation:float 4s ease-in-out infinite;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  .ft1{top:-20px;left:-30px}.ft2{bottom:-22px;right:-20px;animation-delay:1.5s}
+
+  /* SECTION TITLES */
+  .eyebrow{color:var(--cyan);font-size:.82rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:30px;height:2px;background:var(--cyan)}
+  h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-1px;margin-bottom:18px;line-height:1.15}
+  .sub{color:var(--muted);max-width:620px;margin-bottom:56px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px;backdrop-filter:blur(12px);transition:.35s;position:relative;overflow:hidden}
+  .card:hover{transform:translateY(-8px);border-color:rgba(0,229,255,.5);box-shadow:0 20px 50px rgba(0,229,255,.12)}
+  .card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(0,229,255,.1),transparent 40%);opacity:0;transition:.3s;pointer-events:none}
+  .card:hover::before{opacity:1}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+  .about-text p{color:var(--muted);font-size:1.07rem;margin-bottom:18px}
+  .about-text p b{color:var(--text)}
+  .info{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .info .card{padding:22px}
+  .ic{font-size:1.6rem;margin-bottom:10px}
+  .info h4{font-size:.8rem;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:1px}
+  .info p{font-weight:600;margin-top:4px}
+
+  /* SKILLS */
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .sk-icon{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;font-size:1.8rem;background:rgba(0,229,255,.08);border:1px solid var(--line);margin-bottom:22px}
+  .skills h3{font-size:1.3rem;margin-bottom:18px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{padding:7px 13px;border-radius:8px;font-size:.82rem;background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.18);color:#bfefff;transition:.2s}
+  .chip:hover{background:var(--cyan);color:#02131a}
+
+  /* PROCESS */
+  .process{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;position:relative}
+  .process::before{content:"";position:absolute;top:34px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),var(--green),transparent);opacity:.4}
+  .step{text-align:center;position:relative}
+  .step .n{width:68px;height:68px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;background:var(--bg2);border:2px solid var(--cyan);font-size:1.5rem;box-shadow:0 0 25px rgba(0,229,255,.25);transition:.3s}
+  .step:hover .n{background:var(--cyan);transform:scale(1.1)}
+  .step h4{margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.87rem}
+
+  /* PROJECTS */
+  .projects{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .proj{padding:0}
+  .proj-vis{height:230px;position:relative;background:radial-gradient(circle at 30% 40%,#163059,#050a14);overflow:hidden;border-bottom:1px solid var(--line)}
+  .proj-vis::after{content:"";position:absolute;left:0;right:0;height:35%;background:linear-gradient(transparent,rgba(34,255,136,.1),transparent);animation:scan 4s linear infinite}
+  .proj-vis .lbl{position:absolute;top:14px;left:16px;font-size:.72rem;color:var(--green)}
+  .proj-vis .rec{position:absolute;top:14px;right:16px;font-size:.72rem}
+  .mini{position:absolute;inset:50px 30px 20px;display:grid;gap:6px}
+  .mini div{border:1px solid rgba(0,229,255,.25);border-radius:6px;background:rgba(0,229,255,.04);display:grid;place-items:center;font-size:.65rem;color:var(--cyan)}
+  .g4{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr}.g3 div:first-child{grid-row:span 2}
+  .proj-body{padding:28px}
+  .proj-body .type{color:var(--cyan);font-size:.78rem;letter-spacing:2px}
+  .proj-body h3{font-size:1.45rem;margin:8px 0 12px}
+  .proj-body p{color:var(--muted);margin-bottom:18px}
+
+  /* TIMELINE */
+  .tl{position:relative;padding-left:40px;max-width:820px}
+  .tl::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--cyan),var(--green),transparent)}
+  .tl-item{position:relative;margin-bottom:30px}
+  .tl-item::before{content:"";position:absolute;left:-36px;top:30px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--cyan);box-shadow:0 0 15px var(--cyan)}
+  .date{display:inline-block;font-size:.78rem;color:var(--green);padding:4px 12px;border-radius:6px;background:rgba(34,255,136,.08);border:1px solid rgba(34,255,136,.25);margin-bottom:12px}
+  .tl-item h3{font-size:1.3rem}
+  .tl-item .org{color:var(--cyan);margin-bottom:14px;font-size:.95rem}
+  .tl-item ul{list-style:none}
+  .tl-item li{color:var(--muted);padding-left:24px;position:relative;margin-bottom:8px}
+  .tl-item li::before{content:"▹";position:absolute;left:0;color:var(--cyan)}
+
+  /* SINGAPORE BANNER */
+  .sg{border-radius:28px;padding:60px;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(34,255,136,.06));border:1px solid var(--line);display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+  .sg::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(var(--cyan),transparent 70%);opacity:.15;top:-150px;right:-100px}
+  .sg h2 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .flight{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative}
+  .city{text-align:center}
+  .city b{display:block;font-size:2rem;letter-spacing:2px}
+  .city span{color:var(--muted);font-size:.8rem}
+  .path{flex:1;height:2px;border-top:2px dashed rgba(0,229,255,.5);position:relative}
+  .path::after{content:"✈";position:absolute;top:-17px;left:0;font-size:1.4rem;color:var(--cyan);animation:fly 3.5s ease-in-out infinite}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:30px}
+  .c-item{display:flex;align-items:center;gap:18px;padding:22px;margin-bottom:16px}
+  .c-item .ic2{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:var(--grad);font-size:1.4rem;flex-shrink:0}
+  .c-item small{color:var(--muted);display:block}
+  .c-item b{word-break:break-all}
+  form .card{padding:34px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:8px}
+  .field input,.field textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(4,7,13,.6);color:var(--text);font-family:inherit;font-size:.95rem;transition:.2s;resize:vertical}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 4px rgba(0,229,255,.1)}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--muted);font-size:.88rem}
+
+  /* ANIM */
+  .reveal{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.8,.2,1)}
+  .reveal.show{opacity:1;transform:none}
+  @keyframes blink{50%{opacity:.25}}
+  @keyframes scan{0%{top:-35%}100%{top:100%}}
+  @keyframes float{50%{transform:translateY(-12px)}}
+  @keyframes fly{0%{left:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:calc(100% - 20px);opacity:0}}
+  @keyframes pan{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+  .pan{transform-origin:20% 50%;animation:pan 5s ease-in-out infinite}
+
+  /* RESPONSIVE */
+  @media(max-width:960px){
+    .hero-grid,.about-grid,.contact-grid,.sg{grid-template-columns:1fr}
+    .skills,.projects{grid-template-columns:1fr}
+    .process{grid-template-columns:1fr 1fr}.process::before{display:none}
+    .monitor{transform:none}
+    .links{position:fixed;top:72px;left:0;right:0;flex-direction:column;background:rgba(4,7,13,.97);padding:30px;gap:22px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:.4s}
+    .links.open{transform:none}
+    .menu{display:block}
+    .sg{padding:36px}
+    .ft1{left:0}.ft2{right:0}
+  }
+  @media(max-width:520px){.info{grid-template-columns:1fr}.process{grid-template-columns:1fr}section{padding:80px 0}}
+</style>
+</head>
+<body>
+<canvas id="net"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container nav-in">
+    <a href="#home" class="logo"><div class="logo-box mono">BM</div>Manikandan</a>
+    <div class="links" id="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact" class="btn btn-p">Hire Me</a>
+    </div>
+    <button class="menu" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="badge"><span class="dot"></span>Available · Open to Relocate to Singapore 🇸🇬</div>
+      <h1>Boopathi<br><span class="g">Manikandan</span></h1>
+      <div class="typed mono" id="typed"></div>
+      <p class="lead">BCA graduate with hands-on freelance experience installing, configuring and servicing CCTV & surveillance systems — from DVR/NVR setup and IP cameras to remote viewing and network connectivity.</p>
+      <div class="cta">
+        <a href="#contact" class="btn btn-p">📩 Contact Me</a>
+        <a href="#projects" class="btn btn-o">🎥 View My Work</a>
+      </div>
+      <div class="quick">
+        <div><b>BCA</b><span>Graduate · 2026</span></div>
+        <div><b>2025</b><span>Freelancing since June</span></div>
+        <div><b>✓ Valid</b><span>Passport · Ready to Travel</span></div>
+      </div>
+    </div>
+
+    <div class="reveal" style="position:relative">
+      <div class="monitor" id="monitor">
+        <div class="mon-top mono">
+          <span>NVR · LIVE VIEW · 4CH</span>
+          <span class="rec"><i></i>REC</span>
+        </div>
+        <div class="feeds">
+          <div class="feed"><span class="lbl mono">CAM 01 · RESIDENTIAL</span><span class="corner c1"></span><span class="corner c2"></span>
+            <svg viewBox="0 0 100 100" fill="none" stroke="#00e5ff" stroke-width="2"><path d="M20 55 L50 30 L80 55"/><rect x="28" y="55" width="44" height="30"/><rect x="44" y="65" width="12" height="20"/></svg>
+            <span class="ts mono clock"></span></div>
+          <div class="feed"><span class="lbl mono">CAM 02 · HOTEL LOBBY</span><span class="corner c1"></span><span class="corner c2"></span>
+            <svg viewBox="0 0 100 100" fill="none" stroke="#22ff88" stroke-width="2"><rect x="25" y="20" width="50" height="65"/><path d="M35 32h8M57 32h8M35 46h8M57 46h8M35 60h8M57 60h8"/><rect x="44" y="70" width="12" height="15"/></svg>
+            <span class="ts mono clock"></span></div>
+          <div class="feed"><span class="lbl mono">CAM 03 · PTZ</span><span class="corner c1"></span><span class="corner c2"></span>
+            <svg viewBox="0 0 100 100" fill="none" stroke="#00e5ff" stroke-width="2"><path d="M50 15v15"/><g class="pan"><rect x="30" y="35" width="45" height="20" rx="4"/><circle cx="75" cy="45" r="5"/></g></svg>
+            <span class="ts mono clock"></span></div>
+          <div class="feed"><span class="lbl mono">CAM 04 · REMOTE VIEW</span><span class="corner c1"></span><span class="corner c2"></span>
+            <svg viewBox="0 0 100 100" fill="none" stroke="#22ff88" stroke-width="2"><rect x="35" y="18" width="30" height="58" rx="5"/><path d="M45 68h10"/><path d="M20 40a40 40 0 0 1 0 30M80 40a40 40 0 0 0 0 30"/></svg>
+            <span class="ts mono clock"></span></div>
+        </div>
+        <div class="mon-foot mono"><span>📍 PUDUKKOTTAI, TN</span><span id="dateNow"></span></div>
+      </div>
+      <div class="float-tag ft1">📡 <span>Remote Viewing <b style="color:var(--green)">Online</b></span></div>
+      <div class="float-tag ft2">🌐 <span>LAN · IP · Router</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="eyebrow mono">About Me</div>
+    <h2>Keeping homes & businesses <br>secure, one camera at a time.</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a <b>Bachelor of Computer Applications (BCA)</b> graduate from H.H. The Rajah's College, Pudukkottai, with practical freelance experience in <b>CCTV and surveillance system installation</b>, DVR/NVR setup, IP camera configuration and remote viewing access.</p>
+        <p>I also handle <b>basic computer hardware and networking support</b> — setting up LANs, configuring routers and switches, and troubleshooting connectivity so surveillance systems run reliably.</p>
+        <p>I'm reliable, customer-focused, and eager to build a <b>long-term career in CCTV and security systems support</b>. I hold a valid passport and am ready to relocate to <b>Singapore</b> for entry-level CCTV, security systems, or IT support roles.</p>
+      </div>
+      <div class="info reveal">
+        <div class="card"><div class="ic">📍</div><h4>Based In</h4><p>Pudukkottai, Tamil Nadu</p></div>
+        <div class="card"><div class="ic">✈️</div><h4>Relocation</h4><p>Singapore</p></div>
+        <div class="card"><div class="ic">🛂</div><h4>Passport</h4><p>Valid · Ready</p></div>
+        <div class="card"><div class="ic">🗣️</div><h4>Languages</h4><p>Tamil · English</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="eyebrow mono">Technical Skills</div>
+    <h2>What I bring to the job</h2>
+    <p class="sub">Practical, hands-on skills across surveillance systems, networking and computer hardware support.</p>
+    <div class="skills">
+      <div class="card reveal">
+        <div class="sk-icon">📹</div>
+        <h3>CCTV & Surveillance</h3>
+        <div class="chips">
+          <span class="chip">CCTV Installation</span><span class="chip">DVR Installation</span><span class="chip">NVR Installation</span>
+          <span class="chip">DVR/NVR Servicing</span><span class="chip">IP Camera Setup</span><span class="chip">Remote Viewing Configuration</span>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="sk-icon">🌐</div>
+        <h3>Networking</h3>
+        <div class="chips">
+          <span class="chip">LAN Setup</span><span class="chip">IP Addressing</span><span class="chip">Router Configuration</span>
+          <span class="chip">Switch Configuration</span><span class="chip">Network Troubleshooting</span>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="sk-icon">💻</div>
+        <h3>Hardware Support</h3>
+        <div class="chips">
+          <span class="chip">PC/Laptop Installation</span><span class="chip">Hardware Troubleshooting</span>
+          <span class="chip">Peripheral Setup</span><span class="chip">Software Installation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="container">
+    <div class="eyebrow mono">How I Work</div>
+    <h2>From setup to live view</h2>
+    <p class="sub">The end-to-end flow I follow on every surveillance job.</p>
+    <div class="process">
+      <div class="step reveal"><div class="n">📋</div><h4>Understand</h4><p>Learn the customer's needs and site</p></div>
+      <div class="step reveal"><div class="n">🔧</div><h4>Install</h4><p>Mount cameras & connect DVR/NVR</p></div>
+      <div class="step reveal"><div class="n">⚙️</div><h4>Configure</h4><p>Set up IP cameras, LAN & router</p></div>
+      <div class="step reveal"><div class="n">📱</div><h4>Remote View</h4><p>Enable access from anywhere</p></div>
+      <div class="step reveal"><div class="n">🤝</div><h4>Support</h4><p>On-site troubleshooting & servicing</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="eyebrow mono">Featured Projects</div>
+    <h2>Installations I've delivered</h2>
+    <p class="sub">Real-world surveillance projects completed for residential and small business customers.</p>
+    <div class="projects">
+      <div class="card proj reveal">
+        <div class="proj-vis">
+          <span class="lbl mono">● PROJECT 01 · DVR</span><span class="rec mono"><i></i>LIVE</span>
+          <div class="mini g4"><div>CH1</div><div>CH2</div><div>CH3</div><div>CH4</div></div>
+        </div>
+        <div class="proj-body">
+          <span class="type mono">RESIDENTIAL</span>
+          <h3>4-Channel DVR Home Installation</h3>
+          <p>Completed a full 4-channel DVR-based CCTV installation for a residential customer, including system configuration and remote viewing setup.</p>
+          <div class="chips"><span class="chip">DVR</span><span class="chip">4-Channel</span><span class="chip">Remote Viewing</span><span class="chip">Installation</span></div>
+        </div>
+      </div>
+      <div class="card proj reveal">
+        <div class="proj-vis">
+          <span class="lbl mono">● PROJECT 02 · NVR</span><span class="rec mono"><i></i>LIVE</span>
+          <div class="mini g3"><div>IP CAM 1</div><div>IP CAM 2</div><div>IP CAM 3</div></div>
+        </div>
+        <div class="proj-body">
+          <span class="type mono">COMMERCIAL · HOSPITALITY</span>
+          <h3>3-Camera NVR Hotel Setup</h3>
+          <p>Installed and configured a 3-camera NVR-based IP surveillance system for a hotel, with the LAN connectivity needed for remote access.</p>
+          <div class="chips"><span class="chip">NVR</span><span class="chip">IP Cameras</span><span class="chip">LAN Setup</span><span class="chip">Remote Access</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="eyebrow mono">Experience & Education</div>
+    <h2>My journey</h2>
+    <p class="sub">Hands-on fieldwork backed by a computer applications degree.</p>
+    <div class="tl">
+      <div class="tl-item reveal"><div class="card">
+        <span class="date mono">JUNE 2025 – PRESENT</span>
+        <h3>Freelance CCTV & IT Support Technician</h3>
+        <div class="org">Self-Employed · Pudukkottai, Tamil Nadu</div>
+        <ul>
+          <li>Performed independent, hands-on CCTV installation and servicing for individual and small business customers.</li>
+          <li>Installed and configured DVR/NVR-based surveillance systems and IP cameras, including remote viewing setup.</li>
+          <li>Completed a 4-channel DVR residential installation and a 3-camera NVR hotel setup.</li>
+          <li>Set up basic LAN and network connectivity to support CCTV systems and remote access.</li>
+          <li>Carried out PC/laptop setup, software installation and basic hardware troubleshooting.</li>
+          <li>Provided on-site, customer-facing support, resolving common hardware and connectivity issues.</li>
+        </ul>
+      </div></div>
+      <div class="tl-item reveal"><div class="card">
+        <span class="date mono">COMPLETED MAY 2026</span>
+        <h3>Bachelor of Computer Applications (BCA)</h3>
+        <div class="org">H.H. The Rajah's College, Pudukkottai</div>
+        <ul><li>Relevant Coursework: Networking Fundamentals</li></ul>
+      </div></div>
+      <div class="tl-item reveal"><div class="card">
+        <span class="date mono">JUNE 2025</span>
+        <h3>🏅 RESTI Certificate</h3>
+        <div class="org">Certification</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SINGAPORE -->
+<section>
+  <div class="container">
+    <div class="sg reveal">
+      <div>
+        <div class="eyebrow mono">Ready to Relocate</div>
+        <h2>Next stop: <span>Singapore</span> 🇸🇬</h2>
+        <p style="color:var(--muted);max-width:520px">Valid passport in hand and ready to travel. Looking for entry-level roles in <b style="color:var(--text)">CCTV installation, security systems, or IT support</b>.</p>
+      </div>
+      <div class="flight">
+        <div class="city"><b class="mono">IND</b><span>Pudukkottai</span></div>
+        <div class="path"></div>
+        <div class="city"><b class="mono">SIN</b><span>Singapore</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="eyebrow mono">Get In Touch</div>
+    <h2>Let's work together</h2>
+    <p class="sub">Hiring for a CCTV, security systems or IT support role? I'd love to hear from you.</p>
+    <div class="contact-grid">
+      <div class="reveal">
+        <a href="tel:+919342503839" class="card c-item"><div class="ic2">📞</div><div><small>Phone</small><b>+91 93425 03839</b></div></a>
+        <a href="mailto:manikandan.tech@gmail.com" class="card c-item"><div class="ic2">✉️</div><div><small>Email</small><b>manikandan.tech@gmail.com</b></div></a>
+        <div class="card c-item"><div class="ic2">📍</div><div><small>Location</small><b>Pudukkottai, Tamil Nadu, India</b></div></div>
+      </div>
+      <form class="reveal" id="cform">
+        <div class="card">
+          <div class="field"><label>Your Name</label><input id="fn" required placeholder="John Tan"></div>
+          <div class="field"><label>Company</label><input id="fc" placeholder="Company name"></div>
+          <div class="field"><label>Message</label><textarea id="fm" rows="4" required placeholder="Tell me about the role..."></textarea></div>
+          <button class="btn btn-p" type="submit" style="width:100%;justify-content:center">🚀 Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© <span id="yr"></span> Boopathi Manikandan · CCTV & Security Systems Technician</div>
+</footer>
+
+<script>
+// Typing effect
+const roles=["CCTV & Security Systems Technician","DVR / NVR Installation Specialist","IP Camera & Remote Viewing Setup","Networking & Hardware Support"];
+let ri=0,ci=0,del=false;const tEl=document.getElementById('typed');
+(function type(){const w=roles[ri];tEl.textContent=w.slice(0,ci);
+  if(!del&&ci<w.length){ci++;setTimeout(type,60)}
+  else if(!del){del=true;setTimeout(type,1700)}
+  else if(ci>0){ci--;setTimeout(type,30)}
+  else{del=false;ri=(ri+1)%roles.length;setTimeout(type,300)}})();
+
+// Live clock
+function tick(){const d=new Date();const t=d.toLocaleTimeString('en-GB');
+  document.querySelectorAll('.clock').forEach(c=>c.textContent=t);
+  document.getElementById('dateNow').textContent=d.toLocaleDateString('en-GB').replace(/\//g,'-')+' '+t;}
+tick();setInterval(tick,1000);
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// Nav
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
+const links=document.getElementById('links');
+document.getElementById('menuBtn').onclick=()=>links.classList.toggle('open');
+links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
+
+// Reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('show'),i*90);io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Card spotlight
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();
+  c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');}));
+
+// Monitor 3D tilt
+const mon=document.getElementById('monitor');
+if(matchMedia('(min-width:961px)').matches){
+  document.querySelector('.hero').addEventListener('mousemove',e=>{
+    const x=(e.clientX/innerWidth-.5)*16,y=(e.clientY/innerHeight-.5)*-12;
+    mon.style.transform=`perspective(1200px) rotateY(${x-6}deg) rotateX(${y+3}deg)`;});
+}
+
+// Contact form -> opens email app
+document.getElementById('cform').onsubmit=e=>{e.preventDefault();
+  const n=fn.value,c=fc.value,m=fm.value;
+  location.href=`mailto:manikandan.tech@gmail.com?subject=${encodeURIComponent('Job Opportunity – '+(c||n))}&body=${encodeURIComponent(m+'\n\n— '+n+(c?' ('+c+')':''))}`;};
+
+// Network node background
+const cv=document.getElementById('net'),ctx=cv.getContext('2d');let pts=[];
+function size(){cv.width=innerWidth;cv.height=innerHeight;
+  pts=Array.from({length:Math.min(70,innerWidth/18)},()=>({x:Math.random()*cv.width,y:Math.random()*cv.height,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}));}
+size();addEventListener('resize',size);
+(function draw(){ctx.clearRect(0,0,cv.width,cv.height);
+  pts.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>cv.width)p.vx*=-1;if(p.y<0||p.y>cv.height)p.vy*=-1;
+    ctx.fillStyle='rgba(0,229,255,.6)';ctx.beginPath();ctx.arc(p.x,p.y,1.6,0,7);ctx.fill();
+    for(let j=i+1;j<pts.length;j++){const q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y);
+      if(d<140){ctx.strokeStyle=`rgba(0,229,255,${.13*(1-d/140)})`;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}});
+  requestAnimationFrame(draw);})();
+</script>
+</body>
+</html>
